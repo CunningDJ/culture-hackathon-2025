@@ -1,13 +1,13 @@
 steps:
 # npm wrangling
-- name: 'node:18'
+- name: 'node:22'
   id: 'npm install'
   dir: 'apps/studio'
   entrypoint: 'npm'
   args: ['install']
 
 # Build .env.production
-- name: 'node:18'
+- name: 'node:22'
   id: 'build .env.production'
   entrypoint: 'bash'
   args:
@@ -20,7 +20,7 @@ steps:
     EOF
 
 # deploy
-- name: 'node:18'
+- name: 'node:22'
   id: 'Deploy Sanity'
   entrypoint: 'bash'
   args:
