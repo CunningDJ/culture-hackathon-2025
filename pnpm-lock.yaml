@@ -28,9 +28,6 @@ importers:
       react-router:
         specifier: ^7.5.2
         version: 7.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      sol:
-        specifier: github:MuseumofModernArt/sol#v4.1.0
-        version: git+https://git@github.com:MuseumofModernArt/sol.git#f992f4b7ce784fb29231ae0ea1b6966f0a862ab8
     devDependencies:
       '@sanity/eslint-config-studio':
         specifier: ^5.0.1
@@ -2533,9 +2530,6 @@ packages:
     resolution: {integrity: sha512-7gD3pRadPrbjhjLyxebmx/WrFYcuSjZ0XbdUujQMZ/fcE9oeewk2U/7PCvez84UeuK3oSjmPZ0Ch0dlupQvGzw==}
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
-
-  balance-text@3.3.1:
-    resolution: {integrity: sha512-tpnHvo1w0rJ5rbu+jZKf7NLKKg6XZ6eAwREP/9jEDJ+ZTBi6jQFqn/UGARL3/oqD8SgQbyTwBXBjhKDdTgoPRw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -5405,11 +5399,6 @@ packages:
 
   sliced@1.0.1:
     resolution: {integrity: sha512-VZBmZP8WU3sMOZm1bdgTadsQbcscK0UM8oKxKVBs4XAhUo2Xxzm/OFMGBkPusxw9xL3Uy8LrzEqGqJhclsr0yA==}
-
-  sol@git+https://git@github.com:MuseumofModernArt/sol.git#f992f4b7ce784fb29231ae0ea1b6966f0a862ab8:
-    resolution: {commit: f992f4b7ce784fb29231ae0ea1b6966f0a862ab8, repo: git@github.com:MuseumofModernArt/sol.git, type: git}
-    version: 4.1.0
-    engines: {node: ^20.0.0}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -9209,8 +9198,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  balance-text@3.3.1: {}
-
   balanced-match@1.0.2: {}
 
   bare-events@2.5.4:
@@ -12823,10 +12810,6 @@ snapshots:
       tiny-warning: 1.0.3
 
   sliced@1.0.1: {}
-
-  sol@git+https://git@github.com:MuseumofModernArt/sol.git#f992f4b7ce784fb29231ae0ea1b6966f0a862ab8:
-    dependencies:
-      balance-text: 3.3.1
 
   source-map-js@1.2.1: {}
 
