@@ -1,4 +1,4 @@
-import {type StructureResolver} from 'sanity/structure'
+import { type StructureResolver } from 'sanity/structure'
 
 // Types we never want to show
 const hiddenTypes = ['media.tag']
@@ -7,7 +7,7 @@ export const structure: StructureResolver = (S) => {
   const allItems = S.documentTypeListItems().filter((item) => !hiddenTypes.includes(item.getId()!))
   const filterItems = (arr: string[]) => allItems.filter((item) => arr.includes(item.getId()!))
   const artworkItems = ['artwork', 'exhibition']
-  const editorialItems = ['news']
+  const editorialItems = ['news', 'userDrawing']
   const personItems = ['person']
   const contextItems = ['assist.instruction.context']
   return (
