@@ -17,9 +17,11 @@ export const userDrawingType = defineType({
       to: [{ type: 'artwork' }],
     }),
     defineField({
-      name: 'userName',
-      title: 'User\'s name',
-      type: 'string',
+      name: 'userDrawing',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
   ],
 });
