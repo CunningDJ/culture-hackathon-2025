@@ -1,10 +1,10 @@
 steps:
 # npm wrangling
 - name: 'node:18'
-  id: 'npm ci'
+  id: 'npm install'
   dir: 'apps/studio'
   entrypoint: 'npm'
-  args: ['ci']
+  args: ['install']
 
 # Build .env.production
 - name: 'node:18'
