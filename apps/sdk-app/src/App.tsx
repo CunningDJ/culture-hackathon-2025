@@ -2,9 +2,11 @@ import {type SanityConfig} from '@sanity/sdk'
 import {SanityApp} from '@sanity/sdk-react';
 import { BrowserRouter, Route, Routes } from "react-router";
 import './App.css'
-import {ArtworkList} from './ArtworkList'
+import SelectArtwork from './SelectArtwork'
 import Homepage from './Homepage';
 import { DrawMe } from './DrawMe';
+import ArtworkDetailPage from './ArtworkDetailPage';
+
 export function App() {
   // apps can access many different projects or other sources of data
   const sanityConfigs: SanityConfig[] = [
@@ -19,10 +21,9 @@ export function App() {
       <SanityApp config={sanityConfigs} fallback={<div>Loading...</div>}>
         <BrowserRouter>
           <Routes>
-            {/* add your own components here! */}
             <Route path="/" element={<Homepage />} />
-            <Route path="/select-artwork" element={<div/>} />
-            <Route path="/artwork/:artworkId" element={<div/>} />
+            <Route path="/select-artwork" element={<SelectArtwork />} />
+            <Route path="/artwork/:artworkId" element={<ArtworkDetailPage />} />
             <Route path="/artwork/:artworkId/draw" element={<DrawMe />} />
           </Routes>
         </BrowserRouter>
