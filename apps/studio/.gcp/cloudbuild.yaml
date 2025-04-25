@@ -1,0 +1,31 @@
+steps:
+# npm wrangling
+- name: 'node:18'
+  id: 'npm ci'
+  dir: 'apps/studio'
+  entrypoint: 'npm'
+  args: ['ci']
+
+# Build .env.production
+- name: 'node:18'
+  id: 'build .env.production'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    cat << EOF > .env.production
+    SANITY_STUDIO_PROJECT_ID='n7xckjbt'
+    SANITY_STUDIO_DATASET='team-4'
+    SANITY_STUDIO_HOSTNAME='hackathon-team-4'
+    EOF
+
+# deploy
+- name: 'node:18'
+  id: 'Deploy Sanity'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'SANITY_AUTH_TOKEN=${_SANITY_AUTH_TOKEN} npx sanity deploy'
+
+substitutions:
+  _SANITY_AUTH_TOKEN: 'lol'
