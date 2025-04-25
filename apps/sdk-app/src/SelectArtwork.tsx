@@ -1,34 +1,39 @@
-import { SanityDocument, useDocument, useDocuments } from "@sanity/sdk-react";
+import { DocumentHandle, SanityDocument, useDocument, useDocuments } from "@sanity/sdk-react";
+import { redirect, useNavigate } from "react-router";
 
 const DROPDOWN_SIZE = 25;
 
-interface Artwork extends SanityDocument {
-
+interface ArtworkOptionProps {
+  docHandle: DocumentHandle<SanityDocument>;
 }
 
-const ArtworkOption = ({doc}) => {
-  const name: string = useDocument(doc, 'name');
+const ArtworkOption = ({ docHandle }: ArtworkOptionProps) => {
+  const name: string = useDocument(docHandle, 'name');
   return (
-    <option value={doc.documentId}>{name}</option>
+    <option value={docHandle.documentId}>{name}</option>
   );
 }
 
 const SelectArtwork = () => {
+  const navigate = useNavigate();
+
   const {data, hasMore, isPending, loadMore, count} = useDocuments({
     filter: '_type == "artwork"',
     batchSize: DROPDOWN_SIZE,
   })
 
   const onSelectArtwork = (e) => {
-    console.log('target.value:', e.target.value);
+    const artworkId = e.target.value;
+    console.log('selected artworkId:', artworkId);
+    navigate(`/artwork/${artworkId}`);
   }
 
   return (
     <div>
       <h1>Select Artwork</h1>
       <select name="artworks" onChange={onSelectArtwork}>
-        {data.map(doc => (
-          <ArtworkOption key={doc.documentId} doc={doc} />
+        {data.map(docHandle => (
+          <ArtworkOption key={docHandle.documentId} docHandle={docHandle} />
         ))}
       </select>
     </div>
