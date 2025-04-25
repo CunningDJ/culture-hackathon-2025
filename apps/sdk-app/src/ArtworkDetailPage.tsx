@@ -1,5 +1,7 @@
 import { useProjection } from "@sanity/sdk-react";
 import { Link, useParams } from "react-router";
+import {PortableText} from '@portabletext/react'
+
 
 const createDocumentHandle = (documentId: string) => ({
   documentId,
@@ -21,6 +23,7 @@ const ArtworkDetailPage = () => {
       name,
       year,
       medium,
+      description,
       "imageUrl": images[0].asset->{
         url
       }.url
@@ -35,10 +38,13 @@ const ArtworkDetailPage = () => {
       <div>
         <div>
           <p><b>Artist:</b> {doc.artist.name}</p>
-          <img src={doc.artist.imageUrl} width="500" alt={doc.artist.name}/>
         </div>
         <p><b>Year:</b> {doc.year}</p>
         <p><b>Medium:</b> {doc.medium}</p>
+        <div>
+          <h2>Description</h2>
+          <PortableText value={doc.description} />
+        </div>
         <Link to={`/artwork/${artworkId}/draw`}>
           <button>Now Draw!</button>
         </Link>
