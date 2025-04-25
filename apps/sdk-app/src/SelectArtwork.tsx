@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import { IconArrow } from "./IconArrow";
 import { DocumentHandle, SanityDocument, useDocument, useDocuments } from "@sanity/sdk-react";
 import { redirect, useNavigate } from "react-router";
 
@@ -29,13 +31,25 @@ const SelectArtwork = () => {
   }
 
   return (
-    <div>
-      <h1>Select Artwork</h1>
-      <select name="artworks" onChange={onSelectArtwork}>
-        {data.map(docHandle => (
-          <ArtworkOption key={docHandle.documentId} docHandle={docHandle} />
-        ))}
-      </select>
+    <div className="color/background $color/background:black layout/wrapper layout/height:100% $color/white layout/flex:column  layout/justify:between layout/padding:page">
+      <div>
+        <div className="">
+          <span>
+            <h1>
+              <span className="typography $typography/size:extra-extra-large">Ready to make your own masterpiece?</span>
+            </h1>
+          </span>
+        </div>
+
+        <div className="layout/margin:top:page:2">
+          <label className="typography $typography/weight:regular $typography/size:extra-large layout/margin:top:cap:0.5">Select the artwork you want to draw</label>
+          <select name="artworks" onChange={onSelectArtwork} className="typography $typography/weight:regular $typography/size:medium-large layout/margin:top:cap layout/border:bottom:3pt layout/padding:bottom:cap:0.5">
+            {data.map(docHandle => (
+              <ArtworkOption key={docHandle.documentId} docHandle={docHandle} />
+            ))}
+          </select>
+        </div>
+      </div>
     </div>
   );
 }
