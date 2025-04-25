@@ -18,8 +18,7 @@
     "@sanity/sdk-react": "0.0.0-rc.5",
     "react": "^19",
     "react-dom": "^19",
-    "react-router": "^7.5.2",
-    "sol": "github:MuseumofModernArt/sol#v4.1.0"
+    "react-router": "^7.5.2"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.1",
