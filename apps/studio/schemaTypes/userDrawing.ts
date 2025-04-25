@@ -1,9 +1,9 @@
-import { ImageIcon } from '@sanity/icons'
+import { IceCreamIcon } from '@sanity/icons'
 import { defineType, defineField } from 'sanity'
 
 export const userDrawingType = defineType({
   name: 'userDrawing',
-  icon: ImageIcon,
+  icon: IceCreamIcon,
   type: 'document',
   fields: [
     defineField({
