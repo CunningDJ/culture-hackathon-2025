@@ -2,8 +2,9 @@ import {type SanityConfig} from '@sanity/sdk'
 import {SanityApp} from '@sanity/sdk-react';
 import { BrowserRouter, Route, Routes } from "react-router";
 import './App.css'
-import 'sol/dist/sol.css';
+import './sol.css';
 import Homepage from './Homepage';
+import SelectArtwork from './SelectArtwork';
 import { DrawMe } from './DrawMe';
 import ArtworkDetailPage from './ArtworkDetailPage';
 
