@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import './App.css'
 import {ArtworkList} from './ArtworkList'
 import Homepage from './Homepage';
-
+import { DrawMe } from './DrawMe';
 export function App() {
   // apps can access many different projects or other sources of data
   const sanityConfigs: SanityConfig[] = [
@@ -23,7 +23,7 @@ export function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/select-artwork" element={<div/>} />
             <Route path="/artwork/:artworkId" element={<div/>} />
-            <Route path="/artwork/:artworkId/draw" element={<div/>} />
+            <Route path="/artwork/:artworkId/draw" element={<DrawMe />} />
           </Routes>
         </BrowserRouter>
       </SanityApp>
