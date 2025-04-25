@@ -24,4 +24,20 @@ export const userDrawingType = defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      userName: 'userName',
+      userDrawing: 'userDrawing',
+      artworkName: 'refArtwork.name',
+    },
+    prepare(selection) {
+      const { userName, userDrawing, artworkName } = selection
+
+      return {
+        title: `${userName}'s version of ${artworkName}`,
+        media: userDrawing ? userDrawing : null,
+      }
+    },
+  },
+
 });
