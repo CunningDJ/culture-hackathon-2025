@@ -1,4 +1,32 @@
 steps:
+# npm wrangling
+- name: 'node:22'
+  id: 'npm install'
+  dir: 'apps/sdk-app'
+  entrypoint: 'npm'
+  args: ['install']
+
+# Build .env.production
+- name: 'node:22'
+  id: 'build .env.production'
+  dir: 'apps/sdk-app'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    cat << EOF > .env.production
+    SANITY_STUDIO_PROJECT_ID='n7xckjbt'
+    SANITY_STUDIO_DATASET='team-4'
+    SANITY_STUDIO_HOSTNAME='hackathon-team-4'
+    EOF
+
+# build
+- name: 'node:22'
+  dir: 'apps/sdk-app'
+  id: 'Build Sanity'
+  entrypoint: 'npm'
+  args: ['run', 'build']
+
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'build docker image'
