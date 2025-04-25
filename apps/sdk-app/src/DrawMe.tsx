@@ -1,4 +1,4 @@
-import { useDocument } from '@sanity/sdk-react'
+import { useDocument, useProjection } from '@sanity/sdk-react'
 import { Excalidraw, MainMenu } from "@excalidraw/excalidraw";
 import "@excalidraw/excalidraw/index.css";
  
@@ -12,11 +12,18 @@ const documentHandle = {
 export function DrawMe() {
   const id = '175e1ba4-ba5b-4400-a14a-1c70459e16b9'
   const doc = useDocument(documentHandle)
-  console.log("DOC", doc)
+  const proj = useProjection({
+    ...documentHandle,
+    projection: `{
+        "images": images[0].asset->url
+    }`
+  })
+  //console.log("DOC", doc)
+  console.log("PROJ", proj)
   return (
     <div className="example-container">
         <h1>DrawMe</h1>
-        {doc?.images[0].asset.url}
+      <img src={proj?.data.images} style={{height: "500px"}}/>
       <div style={{ height: "500px", width: "100%" }}>
         <Excalidraw >
             <MainMenu >
